@@ -1,3 +1,4 @@
+import { FaEnvelope, FaMapMarkerAlt, FaSuitcase } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 
 const JobDetailes = () => {
@@ -29,16 +30,26 @@ const JobDetailes = () => {
       <p className="text-lg text-gray-700 text-center">{description}</p>
 
       <div className="mt-4 space-y-2">
-        <p>
-          <strong>Company:</strong> {company}
-        </p>
-        <p>
-          <strong>Location:</strong> {location}
-        </p>
+        <div className="flex items-center">
+          <FaSuitcase className="w-6 h-6 mr-2" />
+          <p>
+            <strong>Company:</strong> {company}
+          </p>
+        </div>
+        <div className="flex items-center">
+          <FaMapMarkerAlt className="w-6 h-6 mr-2" />
+          <p>
+            <strong>Location:</strong> {location}
+          </p>
+        </div>
+        <div className="flex items-center"></div>
+        <FaSuitcase className="w-6 h-6 mr-2" />
         <p>
           <strong>Job Type:</strong> {jobType}
         </p>
-
+      </div>
+      <div className="flex items-center">
+        <FaEnvelope className="w-6 h-6 mr-2" />
         <p>
           <strong>HR Email:</strong> {hr_email}
         </p>

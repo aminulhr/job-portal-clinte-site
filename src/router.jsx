@@ -3,6 +3,7 @@ import Home from "../Components/Home";
 import JobDetailes from "../Components/JobDetailes";
 import Login from "../Components/Login";
 import MainLayout from "../Components/MainLayout";
+import PrivateRoute from "../Components/PrivateRoute";
 import Registration from "../Components/Registration";
 
 const router = createBrowserRouter([
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
       { path: "/register", element: <Registration /> },
       {
         path: "/jobs/:id",
-        element: <JobDetailes />,
+        element: (
+          <PrivateRoute>
+            <JobDetailes />
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const response = await fetch(
             `http://localhost:5000/jobs/${params.id}`
